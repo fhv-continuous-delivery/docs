@@ -1,5 +1,5 @@
 # Docs
 Generated documentation for the MDA and CI/CD application.
 
-## Github pages
-
+## GitHub pages
+[GitHub pages documentation](https://fhv-continuous-delivery.github.io/docs/)
