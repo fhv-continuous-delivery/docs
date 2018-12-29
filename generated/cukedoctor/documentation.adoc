@@ -1,0 +1,137 @@
+:toc: right
+:backend: html5
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:source-highlighter: highlightjs
+:toclevels: 3
+:hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
+
+= *Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 1
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Automated-User-Acceptance-Tests-for-the-Sentiment-Analysis-Application>>*
+|5
+|0
+|5
+|27
+|0
+|0
+|0
+|0
+|0
+|27
+|35s 447ms
+|[green]#*passed*#
+12+^|*Totals*
+|5|0|5|27|0|0|0|0|0|27 2+|35s 447ms
+|===
+
+== *Features*
+
+[[Automated-User-Acceptance-Tests-for-the-Sentiment-Analysis-Application, Automated User Acceptance Tests for the Sentiment Analysis Application]]
+=== *Automated User Acceptance Tests for the Sentiment Analysis Application*
+
+ifndef::backend-pdf[]
+minmax::Automated-User-Acceptance-Tests-for-the-Sentiment-Analysis-Application[]
+endif::[]
+==== Background
+
+==========
+Given ::
+Open https://fhv-application-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 458ms)#
+==========
+
+==== Scenario: Test login and logout
+
+==========
+Given ::
+Login with user 'user@test.com' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 836ms)#
+When ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 316ms)#
+Then ::
+I see the login page icon:thumbs-up[role="green",title="Passed"] [small right]#(167ms)#
+==========
+
+==== Scenario: Test positive sentiment
+
+==========
+Given ::
+Login with user 'user@test.com' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 665ms)#
+When ::
+Analyze the text 'I love people' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 682ms)#
+Then ::
+The smiley should be happy icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 140ms)#
+And ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 538ms)#
+==========
+
+==== Scenario: Test negative sentiment
+
+==========
+Given ::
+Login with user 'user@test.com' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 079ms)#
+When ::
+Analyze the text 'I hate people' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 280ms)#
+Then ::
+The smiley should be unhappy icon:thumbs-up[role="green",title="Passed"] [small right]#(720ms)#
+And ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 165ms)#
+==========
+
+==== Scenario: Test neutral sentiment
+
+==========
+Given ::
+Login with user 'user@test.com' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 198ms)#
+When ::
+Analyze the text '' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 294ms)#
+Then ::
+The smiley should be neutral icon:thumbs-up[role="green",title="Passed"] [small right]#(742ms)#
+And ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 869ms)#
+==========
+
+==== Scenario: User interaction with history
+
+==========
+Given ::
+Login with user 'user@test.com' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 183ms)#
+When ::
+Analyze the text 'I love people' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 303ms)#
+And ::
+Analyze the text 'I hate people' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 391ms)#
+And ::
+Navigate to history icon:thumbs-up[role="green",title="Passed"] [small right]#(626ms)#
+Then ::
+The 1. row shows the history item with text 'I love people' and sentiment is 'happy' icon:thumbs-up[role="green",title="Passed"] [small right]#(586ms)#
+And ::
+The 2. row shows the history item with text 'I hate people' and sentiment is 'unhappy' icon:thumbs-up[role="green",title="Passed"] [small right]#(544ms)#
+And ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 764ms)#
+==========
+
